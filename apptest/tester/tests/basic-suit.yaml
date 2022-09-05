@@ -1,0 +1,9 @@
+actions:
+- name: Konnect DP is running
+  bashTest:
+    script: curl -k "${APP_INSTANCE_NAME}-kong-proxy/status"
+    expect:
+      stdout:
+        contains: 'no Route matched with those values'
+      exitCode:
+        equals: 0

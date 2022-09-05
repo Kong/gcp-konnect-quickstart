@@ -1,0 +1,69 @@
+x-google-marketplace:
+  schemaVersion: v2
+
+  applicationApiVersion: v1beta1
+
+  publishedVersion: '2.12.0'
+  publishedVersionMetadata:
+    releaseNote: >-
+      A regular update.
+    releaseTypes:
+      - Feature
+    recommended: false
+  images:
+    '':
+      properties:
+        kong.image.repository:
+          type: REPO_WITH_REGISTRY
+        kong.image.tag:
+          type: TAG
+    postgresql:
+      properties:
+        kong.postgresql.image:
+          type: FULL
+    kic:
+      properties:
+        kong.kic.image:
+          type: FULL
+
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+  kong.env.cluster_control_plane:
+    type: string
+    title: ""
+    default: ''
+  kong.env.cluster_server_name:
+    type: string
+    title: ""
+    default: ''
+  kong.env.cluster_telemetry_endpoint:
+    type: string
+    title: ""
+    default: ''
+  kong.env.cluster_telemetry_server_name:
+    type: string
+    title: ""
+    default: ''
+  certificate:
+    type: string
+    x-google-marketplace:
+      type: TLS_CERTIFICATE
+      tlsCertificate:
+        generatedProperties:
+          base64EncodedPrivateKey: TLS_CERTIFICATE_KEY
+          base64EncodedCertificate: TLS_CERTIFICATE_CRT
+
+required:
+- name
+- namespace
+- kong.env.cluster_control_plane
+- kong.env.cluster_server_name
+- kong.env.cluster_telemetry_endpoint
+- kong.env.cluster_telemetry_server_name

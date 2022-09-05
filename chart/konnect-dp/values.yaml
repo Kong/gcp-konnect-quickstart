@@ -1,0 +1,30 @@
+kong: 
+  image:
+    repository: null
+    tag: null
+  kic:
+    image: null
+  postgresql:
+    image: null
+
+  secretVolumes:
+  - kong-cluster-cert
+
+  admin:
+    enabled: false
+
+  env:
+    role: data_plane
+    database: "off"
+    cluster_mtls: pki
+    cluster_cert: /etc/secrets/kong-cluster-cert/tls.crt
+    cluster_cert_key: /etc/secrets/kong-cluster-cert/tls.key
+    lua_ssl_trusted_certificate: system
+
+  ingressController:
+    enabled: false
+    installCRDs: false
+
+  deployment:
+    serviceAccount:
+      create: false
