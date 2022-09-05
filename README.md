@@ -248,8 +248,8 @@ to your Kubernetes cluster. The new image is used in the following commands as
 `[NEW_IMAGE_REFERENCE]`.
 
 ```shell
-kubectl set image statefulset "$APP_INSTANCE_NAME-konnect" \
-  --namespace "$NAMESPACE" konnect=[NEW_IMAGE_REFERENCE]
+kubectl set image deployment "$APP_INSTANCE_NAME-kong" \
+  --namespace "$NAMESPACE" proxy=[NEW_IMAGE_REFERENCE]
 ```
 
 where `[NEW_IMAGE_REFERENCE]` is the new image.
