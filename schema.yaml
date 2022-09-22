@@ -35,19 +35,11 @@ properties:
     type: string
     x-google-marketplace:
       type: NAMESPACE
-  kong.env.cluster_control_plane:
+  cluster_control_plane:
     type: string
     title: ""
     default: ''
-  kong.env.cluster_server_name:
-    type: string
-    title: ""
-    default: ''
-  kong.env.cluster_telemetry_endpoint:
-    type: string
-    title: ""
-    default: ''
-  kong.env.cluster_telemetry_server_name:
+  cluster_telemetry_endpoint:
     type: string
     title: ""
     default: ''
