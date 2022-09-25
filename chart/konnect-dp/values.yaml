@@ -16,6 +16,10 @@ kong:
   env:
     role: data_plane
     database: "off"
+    cluster_control_plane: $cluster_control_plane:443
+    cluster_server_name: $cluster_control_plane
+    cluster_telemetry_endpoint: $cluster_telemetry_endpoint:443
+    cluster_telemetry_server_name: $cluster_telemetry_endpoint
     cluster_mtls: pki
     cluster_cert: /etc/secrets/kong-cluster-cert/tls.crt
     cluster_cert_key: /etc/secrets/kong-cluster-cert/tls.key
