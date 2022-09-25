@@ -55,7 +55,5 @@ properties:
 required:
 - name
 - namespace
-- kong.env.cluster_control_plane
-- kong.env.cluster_server_name
-- kong.env.cluster_telemetry_endpoint
-- kong.env.cluster_telemetry_server_name
+- cluster_control_plane
+- cluster_telemetry_endpoint
