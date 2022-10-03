@@ -29,12 +29,16 @@ properties:
       type: NAMESPACE
   cluster_server_name:
     type: string
+    default: "default"
   cluster_telemetry_server_name:
     type: string
+    default: "default"
   tls_crt:
     type: string
+    default: "YQo="
   tls_key:
     type: string
+    default: "YQo="
 
 required:
 - name

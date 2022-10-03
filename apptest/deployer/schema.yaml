@@ -4,3 +4,15 @@ properties:
     default: $REGISTRY/tester:$TAG
     x-google-property:
       type: IMAGE
+  cluster_server_name:
+    type: string
+    default: Some default value
+  cluster_telemetry_server_name:
+    type: string
+    default: Some default value
+  tls_crt:
+    type: string
+    default: Some default value
+  tls_key:
+    type: string
+    default: Some default value

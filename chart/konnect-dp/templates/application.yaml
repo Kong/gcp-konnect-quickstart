@@ -15,7 +15,7 @@ spec:
       Kong Konnect is the only API management platform designed from the ground up for the
       cloud native era, delivered as a service. The global control plane is hosted in the cloud by
       Kong, while the runtimes, Kong Gateway - the fastest and most adopted API gateway - run
-      within your preferred environment.
+      within your preferred environment...
   selector:
     matchLabels:
       app.kubernetes.io/name: "{{ .Release.Name }}"
