@@ -3,7 +3,7 @@ x-google-marketplace:
 
   applicationApiVersion: v1beta1
 
-  publishedVersion: '2.12.0'
+  publishedVersion: '3.0.0'
   publishedVersionMetadata:
     releaseNote: >-
       A regular update.
@@ -13,18 +13,10 @@ x-google-marketplace:
   images:
     '':
       properties:
-        kong.image.repository:
+        image.repository:
           type: REPO_WITH_REGISTRY
-        kong.image.tag:
+        image.tag:
           type: TAG
-    postgresql:
-      properties:
-        kong.postgresql.image:
-          type: FULL
-    kic:
-      properties:
-        kong.kic.image:
-          type: FULL
 
 properties:
   name:
@@ -35,25 +27,19 @@ properties:
     type: string
     x-google-marketplace:
       type: NAMESPACE
-  cluster_control_plane:
+  cluster_server_name:
     type: string
-    title: ""
-    default: ''
-  cluster_telemetry_endpoint:
+  cluster_telemetry_server_name:
     type: string
-    title: ""
-    default: ''
-  certificate:
+  tls_crt:
     type: string
-    x-google-marketplace:
-      type: TLS_CERTIFICATE
-      tlsCertificate:
-        generatedProperties:
-          base64EncodedPrivateKey: TLS_CERTIFICATE_KEY
-          base64EncodedCertificate: TLS_CERTIFICATE_CRT
+  tls_key:
+    type: string
 
 required:
 - name
 - namespace
-- cluster_control_plane
-- cluster_telemetry_endpoint
+- cluster_server_name
+- cluster_telemetry_server_name
+- tls_crt
+- tls_key

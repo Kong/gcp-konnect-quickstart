@@ -1,7 +1,10 @@
-engine: gotpl
+apiVersion: v2
 name: konnect-dp
-version: 1.0.0
-dependencies:
-- name: kong
-  version: 2.12.0
-  repository: https://charts.konghq.com
+version: 3.0.0
+engine: gotpl
+home: https://konghq.com/
+sources:
+  - https://github.com/Kong/gcp-konnect-quickstart
+maintainers:
+- name: gvquiroz
+  email: gabriel.quiroz@konghq.com

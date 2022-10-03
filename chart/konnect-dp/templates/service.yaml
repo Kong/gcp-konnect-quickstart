@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance:  {{ .Release.Name }}-kong
+  name: {{ .Release.Name }}-kong-proxy
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  ports:
+  - appProtocol: http
+    name: kong-proxy
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  - appProtocol: https
+    name: kong-proxy-tls
+    port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app.kubernetes.io/component: app
+    app.kubernetes.io/instance: {{ .Release.Name }}-kong
+    app.kubernetes.io/name: {{ .Release.Name }}-kong
+  sessionAffinity: None
+  type: LoadBalancer

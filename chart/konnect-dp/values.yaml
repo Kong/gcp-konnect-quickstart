@@ -1,34 +1,8 @@
-kong: 
-  image:
-    repository: null
-    tag: null
-  kic:
-    image: null
-  postgresql:
-    image: null
+image:
+  repository: null
+  tag: null
 
-  secretVolumes:
-  - kong-cluster-cert
-
-  admin:
-    enabled: false
-
-  env:
-    role: data_plane
-    database: "off"
-    cluster_control_plane: $cluster_control_plane:443
-    cluster_server_name: $cluster_control_plane
-    cluster_telemetry_endpoint: $cluster_telemetry_endpoint:443
-    cluster_telemetry_server_name: $cluster_telemetry_endpoint
-    cluster_mtls: pki
-    cluster_cert: /etc/secrets/kong-cluster-cert/tls.crt
-    cluster_cert_key: /etc/secrets/kong-cluster-cert/tls.key
-    lua_ssl_trusted_certificate: system
-
-  ingressController:
-    enabled: false
-    installCRDs: false
-
-  deployment:
-    serviceAccount:
-      create: false
+cluster_server_name: $cluster_control_plane
+cluster_telemetry_server_name: $cluster_telemetry_endpoint
+tls_crt: $tls_crt
+tls_key: $tls_key

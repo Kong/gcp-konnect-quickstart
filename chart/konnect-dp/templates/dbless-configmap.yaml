@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  kong.yml: |
+    _format_version: "1.1"
+    services:
+      # Example configuration
+      # - name: example.com
+      #   url: http://example.com
+      #   routes:
+      #   - name: example
+      #     paths:
+      #     - "/example"
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+  name: kong-custom-dbless-config-volume
+  namespace: {{ .Release.Namespace }}
