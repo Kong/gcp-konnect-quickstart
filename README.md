@@ -282,3 +282,23 @@ cluster, delete the cluster using this command:
 ```shell
 gcloud container clusters delete "$CLUSTER" --zone "$ZONE"
 ```
+
+## To publish a new release of Kong
+1. Upload the Kong Docker image to GCP
+  - docker pull kong/kong-gateway:3.2.1.0-alpine
+  - docker tag kong/kong-gateway:3.2.1.0-alpine gcr.io/konghq-public/konnect:3.2.1
+  - docker push gcr.io/konghq-public/konnect:3.2.1
+
+2. Update the Kong version in the [deplment.yaml](gcp-konnect-quickstart/chart/konnect-dp/templates/deployment.yaml)
+
+3. Update the new Deployer image version in the following files
+  - [schema.yaml](work/gcp-konnect-quickstart/schema.yaml)
+  - [chart.yaml](gcp-konnect-quickstart/chart/konnect-dp/Chart.yaml)
+  - [applicaton.yaml](gcp-konnect-quickstart/chart/konnect-dp/templates/application.yaml)
+
+4. Build the Deployer docker image
+```export REGISTRY=gcr.io/$(gcloud config get-value project | tr ':' '/')
+export APP_NAME=konnect
+docker buildx build --tag $REGISTRY/$APP_NAME/deployer:3.1.4 . --platform linux/amd64
+docker push $REGISTRY/$APP_NAME/deployer:3.1.4
+```   
