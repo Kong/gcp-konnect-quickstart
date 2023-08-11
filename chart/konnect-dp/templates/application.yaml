@@ -10,7 +10,7 @@ metadata:
 spec:
   descriptor:
     type: kong
-    version: '3.1.4'
+    version: '3.1.8'
     description: |-
       Kong Konnect is the only API management platform designed from the ground up for the
       cloud native era, delivered as a service. The global control plane is hosted in the cloud by
