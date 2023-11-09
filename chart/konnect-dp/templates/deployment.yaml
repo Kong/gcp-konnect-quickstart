@@ -105,7 +105,7 @@ spec:
           value: "off"
         - name: KONG_NGINX_DAEMON
           value: "off"
-        image: gcr.io/konghq-public/konnect:3.4.0.0-20230809-debian
+        image: gcr.io/konghq-public/konnect:3.5.0.0-20231107-debian
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
@@ -237,7 +237,7 @@ spec:
           value: "off"
         - name: KONG_VITALS
           value: "off"
-        image: gcr.io/konghq-public/konnect:3.4.0.0-20230809-debian
+        image: gcr.io/konghq-public/konnect:3.5.0.0-20231107-debian
         imagePullPolicy: IfNotPresent
         name: clear-stale-pid
         terminationMessagePath: /dev/termination-log
